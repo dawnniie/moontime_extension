@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Lato";
+    src: url(icons/Lato-Light.ttf) format("truetype");
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+body[preload],
+body[preload] * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
