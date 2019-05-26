@@ -15,3 +15,119 @@ body[preload] * {
     -o-transition: none !important;
     transition: none !important;
 }
+
+body[dark] {
+    background-color: rgb(16, 21, 30);
+}
+
+
+/* LEFT PADDLE */
+
+#paddle-left {
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    top: 40vh;
+    left: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#hover-detect-left {
+    z-index: 1;
+    position: absolute;
+    width: 20px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+#paddle-left .paddle-upper {
+    width: 3px;
+    height: 40px;
+    border-radius: 3px 3px 0px 0px;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+#hover-detect-left:hover~#paddle-left .paddle-upper,
+#paddle-left:hover .paddle-upper,
+#paddle-left.is-active .paddle-upper {
+    transform: rotate(20deg);
+    margin-left: 5px;
+    transition-duration: 0.2s;
+}
+
+#paddle-left .paddle-lower {
+    width: 3px;
+    height: 40px;
+    margin-top: -5px;
+    border-radius: 3px 3px 0px 0px;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+#hover-detect-left:hover~#paddle-left .paddle-lower,
+#paddle-left:hover .paddle-lower,
+#paddle-left.is-active .paddle-lower {
+    transform: rotate(-20deg);
+    margin-left: 5px;
+    transition-duration: 0.2s;
+}
+
+
+/* RIGHT PADDLE */
+
+#paddle-right {
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    top: 40vh;
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#hover-detect-right {
+    z-index: 1;
+    position: absolute;
+    width: 20px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#paddle-right .paddle-upper {
+    width: 3px;
+    height: 40px;
+    border-radius: 3px 3px 0px 0px;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+#hover-detect-right:hover~#paddle-right .paddle-upper,
+#paddle-right:hover .paddle-upper,
+#paddle-right.is-active .paddle-upper {
+    transform: rotate(-20deg);
+    margin-right: 5px;
+    transition-duration: 0.2s;
+}
+
+#paddle-right .paddle-lower {
+    width: 3px;
+    height: 40px;
+    margin-top: -5px;
+    border-radius: 3px 3px 0px 0px;
+    background-color: white;
+    transition-duration: 0.2s;
+}
+
+#hover-detect-right:hover~#paddle-right .paddle-lower,
+#paddle-right:hover .paddle-lower,
+#paddle-right.is-active .paddle-lower {
+    transform: rotate(20deg);
+    margin-right: 5px;
+    transition-duration: 0.2s;
+}
