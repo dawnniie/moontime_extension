@@ -7,6 +7,10 @@
     width: 0px;
 }
 
+html {
+    --background-color: rgb(16, 21, 30);
+}
+
 body[preload],
 body[preload] * {
     -webkit-transition: none !important;
@@ -16,8 +20,9 @@ body[preload] * {
     transition: none !important;
 }
 
-body[dark] {
-    background-color: rgb(16, 21, 30);
+body {
+    background-color: var(--background-color);
+    margin: 0;
 }
 
 
@@ -93,7 +98,7 @@ body[dark] {
     z-index: 1;
     position: absolute;
     width: 20px;
-    height: 100vh;
+    height: calc(100vh - 48px);
     top: 0;
     right: 0;
     cursor: pointer;
