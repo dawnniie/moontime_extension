@@ -8,7 +8,7 @@
     transition: top 0.2s, transform 0.2s, opacity 0.4s;
 }
 
-#section_1>.time[hidden] {
+#section_1>.time[invisible] {
     opacity: 0;
     transition: opacity 0.4s;
 }
