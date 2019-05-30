@@ -4,7 +4,7 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
 }
 
 html {
@@ -51,7 +51,7 @@ body {
 #paddle-left .paddle-upper {
     width: 3px;
     height: 40px;
-    border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0 0;
     background-color: white;
     transition: transform 0.2s, margin-left 0.2s;
 }
@@ -68,7 +68,7 @@ body {
     width: 3px;
     height: 40px;
     margin-top: -5px;
-    border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0 0;
     background-color: white;
     transition: transform 0.2s, margin-left 0.2s;
 }
@@ -107,7 +107,7 @@ body {
 #paddle-right .paddle-upper {
     width: 3px;
     height: 40px;
-    border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0 0;
     background-color: white;
     transition: transform 0.2s, margin-left 0.2s;
 }
@@ -124,7 +124,7 @@ body {
     width: 3px;
     height: 40px;
     margin-top: -5px;
-    border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0 0;
     background-color: white;
     transition: transform 0.2s, margin-left 0.2s;
 }
@@ -185,7 +185,7 @@ body {
 #bottom-toolbar .overlay:hover~.icons-container,
 #bottom-toolbar .paddle-toolbar:hover~.icons-container,
 #bottom-toolbar .icons-container:hover {
-    transform: translateX(0px);
+    transform: translateX(0);
     transition: transform 0.4s;
 }
 
