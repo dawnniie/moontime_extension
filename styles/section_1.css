@@ -4,7 +4,13 @@
     top: 30vh;
     height: 23vh;
     text-align: center;
-    transition: top 0.2s, transform 0.2s;
+    opacity: 1;
+    transition: top 0.2s, transform 0.2s, opacity 0.4s;
+}
+
+#section_1>.time[hidden] {
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
 #section_1>.time[pinned] {
