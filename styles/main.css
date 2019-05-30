@@ -36,6 +36,12 @@ body {
     left: 10px;
     cursor: pointer;
     z-index: 2;
+    transition: transform 0.2s;
+}
+
+#paddle-left[disabled] {
+    transform: scaleY(0);
+    transition: transform 0.2s;
 }
 
 #hover-detect-left {
