@@ -1,0 +1,31 @@
+#section_1 .time .moon_icon {
+    position: absolute;
+    width: 5vh;
+    height: 5vh;
+    top: 38.5vh;
+    left: calc(35vw - 10vh);
+}
+
+#section_1 .time .time {
+    position: absolute;
+    top: 30vh;
+    left: 35vw;
+    height: 20vh;
+    font-size: 18vh;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    margin: 0;
+}
+
+#section_1 .time .date {
+    position: absolute;
+    top: 50vh;
+    left: 36vw;
+    height: 3vh;
+    font-size: 3vh;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    margin: 0;
+    opacity: 0.8;
+}
