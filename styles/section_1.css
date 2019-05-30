@@ -4,6 +4,18 @@
     top: 30vh;
     height: 23vh;
     text-align: center;
+    transition: top 0.2s, transform 0.2s;
+}
+
+#section_1>.time[pinned] {
+    top: -4vh;
+    transform: scale(0.6);
+    transition: top 0.2s, transform 0.2s;
+}
+
+#section_1>.time[pinned] .container .date {
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 #section_1 .time .moon_icon {
@@ -43,4 +55,5 @@
     margin: 0;
     opacity: 0.8;
     padding-left: 2vw;
+    transition: opacity 0.2s;
 }
