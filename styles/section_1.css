@@ -1,31 +1,46 @@
-#section_1 .time .moon_icon {
+#section_1>.time {
     position: absolute;
-    width: 5vh;
-    height: 5vh;
-    top: 38.5vh;
-    left: calc(35vw - 10vh);
+    width: 100vw;
+    top: 30vh;
+    height: 23vh;
+    text-align: center;
 }
 
-#section_1 .time .time {
-    position: absolute;
-    top: 30vh;
-    left: 35vw;
+#section_1 .time .moon_icon {
+    position: relative;
+    width: 5vh;
+    height: 5vh;
+    top: 8.5vh;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5vh;
+}
+
+#section_1 .time .container {
+    position: relative;
+    height: 23vh;
+    width: auto;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+#section_1 .time .container .time {
     height: 20vh;
     font-size: 18vh;
+    width: auto;
     font-variant-numeric: tabular-nums;
     font-family: 'Lato', sans-serif;
     color: white;
     margin: 0;
 }
 
-#section_1 .time .date {
-    position: absolute;
-    top: 50vh;
-    left: 36vw;
+#section_1 .time .container .date {
     height: 3vh;
     font-size: 3vh;
     font-family: 'Lato', sans-serif;
     color: white;
     margin: 0;
     opacity: 0.8;
+    padding-left: 2vw;
 }
