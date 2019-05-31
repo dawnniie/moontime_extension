@@ -1,25 +1,34 @@
+#section_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
 #section_1>.time {
     position: absolute;
     width: 100vw;
     top: 30vh;
     height: 23vh;
     text-align: center;
-    opacity: 1;
-    transition: top 0.2s, transform 0.2s, opacity 0.4s;
-}
-
-#section_1>.time[invisible] {
     opacity: 0;
     transition: opacity 0.4s;
 }
 
-#section_1>.time[pinned] {
-    top: -4vh;
-    transform: scale(0.6);
-    transition: top 0.2s, transform 0.2s;
+#section_1>.time[visible] {
+    top: 30vh;
+    transform: scale(1);
+    opacity: 1;
+    transition: top 0.4s, transform 0.2s, opacity 0.4s;
 }
 
-#section_1>.time[pinned] .container .date {
+#section_1[pinned]>.time {
+    top: -4vh;
+    transform: scale(0.6);
+    transition: top 0.4s, transform 0.2s 0.2s;
+}
+
+#section_1[pinned]>.time .container .date {
     opacity: 0;
     transition: opacity 0.2s;
 }

@@ -1,0 +1,17 @@
+#section_0 {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: -10vw;
+    transition: left 0.4s, opacity 0.4s;
+    background-color: green;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#section_0[focused] {
+    left: 0;
+    opacity: 1;
+    transition: left 0.4s, opacity 0.4s;
+}

@@ -11,18 +11,10 @@ html {
     --background-color: rgb(16, 21, 30);
 }
 
-body[preload],
-body[preload] * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
-
 body {
     background-color: var(--background-color);
     margin: 0;
+    overflow-x: hidden;
 }
 
 
@@ -35,23 +27,27 @@ body {
     top: 40vh;
     left: 10px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 4;
     transition: transform 0.2s;
 }
 
 #paddle-left[disabled] {
-    transform: scaleY(0);
+    transform: scale(0);
     transition: transform 0.2s;
 }
 
 #hover-detect-left {
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     width: 20px;
     height: 100vh;
     top: 0;
     left: 0;
     cursor: pointer;
+}
+
+#hover-detect-left[disabled] {
+    display: none;
 }
 
 #paddle-left .paddle-upper {
@@ -97,17 +93,27 @@ body {
     top: 40vh;
     right: 10px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 4;
+    transition: transform 0.2s;
+}
+
+#paddle-right[disabled] {
+    transform: scale(0);
+    transition: transform 0.2s;
 }
 
 #hover-detect-right {
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     width: 20px;
     height: calc(100vh - 48px);
     top: 0;
     right: 0;
     cursor: pointer;
+}
+
+#hover-detect-right[disabled] {
+    display: none;
 }
 
 #paddle-right .paddle-upper {
