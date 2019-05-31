@@ -10,6 +10,7 @@
 }
 
 #section_0[focused] {
+    pointer-events: all;
     left: 0;
     opacity: 1;
     transition: left 0.4s, opacity 0.4s;

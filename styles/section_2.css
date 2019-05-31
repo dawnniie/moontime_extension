@@ -4,14 +4,53 @@
     position: absolute;
     left: 10vw;
     transition: left 0.4s, opacity 0.4s;
-    background-color: red;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 2;
 }
 
 #section_2[focused] {
+    pointer-events: all;
     left: 0;
     opacity: 1;
     transition: left 0.4s, opacity 0.4s;
+}
+
+#converter_solar,
+#converter_moon {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    font-size: 8vw;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-variant-numeric: tabular-nums;
+    color: white;
+    font-family: "Lato", sans-serif;
+}
+
+#converter_solar {
+    margin-top: calc(14vh + 20px);
+}
+
+#converter_moon {
+    margin-top: 4vw;
+}
+
+#converter_solar .adjust-row,
+#converter_moon .adjust-row {
+    font-size: 0px;
+}
+
+#converter_solar .adjust-row td i,
+#converter_moon .adjust-row td i {
+    cursor: pointer;
+    opacity: 0.5;
+    transition-duration: 0.2s;
+}
+
+#converter_solar .adjust-row td i:hover,
+#converter_moon .adjust-row td i:hover {
+    opacity: 1;
+    transition-duration: 0.2s;
 }

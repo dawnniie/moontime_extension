@@ -94,4 +94,73 @@
         }
     })
 
+    // converter
+    let converterSolar = new Date()
+    let converterMoon = moon.solarToMoon(converterSolar.getTime())
+
+    function changeConverterSolar(seconds) {
+        converterSolar.setTime(converterSolar.getTime() + seconds * 1000)
+        converterMoon = moon.solarToMoon(converterSolar.getTime())
+        updateConverters()
+    }
+
+    function changeConverterMoon(mini_moon_moments) {
+        converterMoon += mini_moon_moments * 200
+        converterSolar.setTime(moon.moonToSolar(converterMoon))
+        updateConverters()
+    }
+
+    let padZero = x => (String(x).length == 1) ? "0" + x : x
+
+    function updateConverters() {
+        // solar
+        let values = [padZero(converterSolar.getHours()), ":", padZero(converterSolar.getMinutes()), ":", padZero(converterSolar.getSeconds()), "", converterSolar.getDate(), "/", converterSolar.getMonth() + 1, "/", String(converterSolar.getFullYear()).substring(2)]
+
+        let elms = document.querySelectorAll("#converter_solar .values td")
+        for (var i = 0; i < elms.length; i++) elms[i].innerHTML = values[i]
+        document.querySelector("#solar_indicator_mon").innerHTML = ["Janrary", "Febrary", "March", "April", "May", "June", "July", "Augest", "September", "Octeober", "November", "Deecember"][converterSolar.getMonth()]
+
+        // moon
+        let fm = moon.formatMoonTime(converterMoon)
+        let m_values = [padZero(fm["MS"]), ":", padZero(fm["MM"]), ":", padZero(fm["M"]), "", fm["Md"], "/", fm["MeM"], "/", fm["MA"], "/", fm["MC"]]
+        let m_elms = document.querySelectorAll("#converter_moon .values td")
+        for (var i = 0; i < m_elms.length; i++) m_elms[i].innerHTML = m_values[i]
+        document.querySelector("#moon_indicator_mem").innerHTML = fm["MeMT"]
+        document.querySelector("#moon_indicator_ann").innerHTML = fm["MAT"]
+
+        // age
+        //let annuals = (formatMoments(exttime, false)[0] - formatMoments(converterMoon, false)[0]) * 11 + (formatMoments(exttime, false)[1] - formatMoments(converterMoon, false)[1])
+        //document.querySelector("#converter_age").innerHTML = "Age: " + annuals
+    }
+
+    updateConverters()
+
+    let elms = document.querySelectorAll("#solar_adjust_up td i")
+    for (var i = 0; i < elms.length; i++) {
+        elms[i].onclick = function(e) {
+            changeConverterSolar(e.path[0].getAttribute("adjust-len"))
+        }
+    }
+
+    elms = document.querySelectorAll("#solar_adjust_down td i")
+    for (var i = 0; i < elms.length; i++) {
+        elms[i].onclick = function(e) {
+            changeConverterSolar(e.path[0].getAttribute("adjust-len") * -1)
+        }
+    }
+
+    elms = document.querySelectorAll("#moon_adjust_up td i")
+    for (var i = 0; i < elms.length; i++) {
+        elms[i].onclick = function(e) {
+            changeConverterMoon(e.path[0].getAttribute("adjust-len"))
+        }
+    }
+
+    elms = document.querySelectorAll("#moon_adjust_down td i")
+    for (var i = 0; i < elms.length; i++) {
+        elms[i].onclick = function(e) {
+            changeConverterMoon(e.path[0].getAttribute("adjust-len") * -1)
+        }
+    }
+
 })();
