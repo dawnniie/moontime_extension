@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Moon</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/section_0.css">
+    <link rel="stylesheet" href="styles/section_1.css">
+    <link rel="stylesheet" href="styles/section_2.css">
+    <link rel="stylesheet" href="material.icons.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/LachlanWalls/moontime/moontime.js" delay_start></script>
+</head>
+
+<body preload dark>
+    <div id="hover-detect-left"></div>
+    <div id="hover-detect-right"></div>
+
+    <div id="paddle-left">
+        <div class="paddle-upper"></div>
+        <div class="paddle-lower"></div>
+    </div>
+
+    <div id="paddle-right">
+        <div class="paddle-upper"></div>
+        <div class="paddle-lower"></div>
+    </div>
+
+
+
+    <section id="section_0">
+        <table id="tb">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Approximation</th>
+                <th>Precise</th>
+            </tr>
+            <tr>
+                <td>m</td>
+                <td>Micro Moon Moment</td>
+                <td>200</td>
+                <td>4 milliseconds</td>
+                <td>0.00497875 s</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>Mini Moon Moment</td>
+                <td>100</td>
+                <td>almost 1 second</td>
+                <td>0.983575 s</td>
+            </tr>
+            <tr>
+                <td>MM</td>
+                <td>Moon Moment</td>
+                <td>40</td>
+                <td>1.5 minutes</td>
+                <td>1.63929167 m</td>
+            </tr>
+            <tr>
+                <td>MS</td>
+                <td>Moon Segment</td>
+                <td>10</td>
+                <td>1.1 hours</td>
+                <td>1.09230556 h</td>
+            </tr>
+            <tr>
+                <td>Md</td>
+                <td>Moon Day</td>
+                <td>59</td>
+                <td>11 hours</td>
+                <td>10.9286111 h</td>
+            </tr>
+            <tr>
+                <td>MeM</td>
+                <td>Mega Moon Moment</td>
+                <td>4</td>
+                <td>27 days</td>
+                <td>26.8661689 days</td>
+            </tr>
+            <tr>
+                <td>MA</td>
+                <td>Moon Annual</td>
+                <td>11</td>
+                <td>3.5 months</td>
+                <td>3.58215586 months</td>
+            </tr>
+            <tr>
+                <td>MC</td>
+                <td>Moon Chunk</td>
+                <td>highest unit</td>
+                <td>4 years</td>
+                <td>4.10455359 years</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="section_1">
+        <div class="time">
+            <img class="moon_icon" src="icons/moon_ic.png">
+            <div class="container">
+                <p class="time"></p>
+                <p class="date"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section_2">
+        <table id="converter_solar">
+            <tr class="adjust-row" id="solar_adjust_up">
+                <td>
+                    <i class="material-icons" adjust-len="3600">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="60">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="1">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="86400">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="2592000">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="31536000">expand_less</i>
+                </td>
+            </tr>
+            <tr class="values">
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td style="width: 10%;"></td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+            </tr>
+            <tr class="adjust-row" id="solar_adjust_down">
+                <td>
+                    <i class="material-icons" adjust-len="3600">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="60">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="1">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="86400">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="2592000">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="31536000">expand_more</i>
+                </td>
+            </tr>
+            <tr style="font-size: 2vw;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="solar_indicator_mon">glen</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table id="converter_moon">
+            <tr class="adjust-row" id="moon_adjust_up">
+                <td>
+                    <i class="material-icons" adjust-len="4000">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="100">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="1">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="40000">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="2360000">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="9440000">expand_less</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="103840000">expand_less</i>
+                </td>
+            </tr>
+            <tr class="values">
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td style="width: 5%;"></td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+            </tr>
+            <tr class="adjust-row" id="moon_adjust_down">
+                <td>
+                    <i class="material-icons" adjust-len="4000">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="100">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="1">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="40000">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="2360000">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="9440000">expand_more</i>
+                </td>
+                <td></td>
+                <td>
+                    <i class="material-icons" adjust-len="103840000">expand_more</i>
+                </td>
+            </tr>
+            <tr style="font-size: 2vw;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="moon_indicator_mem">glen</td>
+                <td></td>
+                <td id="moon_indicator_ann">blah</td>
+            </tr>
+        </table>
+        <p id="converter_age" style="font-size: 14px;">Age: </p>
+    </section>
+
+
+
+    <div id="bottom-toolbar">
+        <div class="overlay"></div>
+        <div class="paddle-toolbar"></div>
+        <div class="icons-container">
+            <i class="material-icons icon help" style="font-size: 21px; padding: 2px 3px 2px 1px;">help_outline</i>
+            <i class="material-icons icon version">change_history</i>
+            <i class="material-icons icon sync">cloud_done</i>
+        </div>
+    </div>
+
+    <div class="sync info-overlay">
+        <i class="material-icons close">close</i>
+        <h2>Time Sync</h2>
+        <p class="status"><strong>Status: </strong><span style="color: green">Operational</span></p>
+        <p><strong>Server: </strong>moon.dynodel.com</p>
+        <p><strong>Path: </strong>/api/v2</p>
+        <p class="offset"><strong>Offset: </strong></p>
+    </div>
+    <div class="version info-overlay">
+        <i class="material-icons close">close</i>
+        <h2>Version</h2>
+        <p><strong>Moon is on version 3.0.0</strong></p>
+        <p>- Improved clock accuracy</p>
+        <p>- Improved page switching</p>
+        <p>- Revamped toolbar</p>
+        <p>- More customisation</p>
+        <p></p>
+    </div>
+    <div class="help info-overlay">
+        <i class="material-icons close">close</i>
+        <h2>Help</h2>
+        <p><strong>Moon is a timekeeping system based on the lunar cycle.</strong></p>
+        <p>Help resources:</p>
+        <p>- Ask on <a href="https://reddit.com/r/moon_time">r/moon_time</a>.</p>
+        <p>- Contact through the <a href="https://chrome.google.com/webstore/detail/moon/pkmifcpdpojpgejapnpedemfpfddflee">extension page</a>.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

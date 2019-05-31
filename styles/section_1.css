@@ -1,0 +1,75 @@
+#section_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#section_1>.time {
+    position: absolute;
+    width: 100vw;
+    top: 30vh;
+    height: 23vh;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+    filter: drop-shadow(0px 0px 40px);
+}
+
+#section_1>.time[visible] {
+    top: 30vh;
+    transform: scale(1);
+    opacity: 1;
+    transition: top 0.4s, transform 0.2s, opacity 0.4s;
+}
+
+#section_1[pinned]>.time {
+    top: -4vh;
+    transform: scale(0.6);
+    transition: top 0.4s, transform 0.2s 0.2s;
+}
+
+#section_1[pinned]>.time .container .date {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+#section_1 .time .moon_icon {
+    position: relative;
+    width: 5vh;
+    height: 5vh;
+    top: 8.5vh;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5vh;
+}
+
+#section_1 .time .container {
+    position: relative;
+    height: 23vh;
+    width: auto;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+#section_1 .time .container .time {
+    height: 20vh;
+    font-size: 18vh;
+    width: auto;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    margin: 0;
+}
+
+#section_1 .time .container .date {
+    height: 3vh;
+    font-size: 3vh;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    margin: 0;
+    opacity: 0.8;
+    padding-left: 2vw;
+    transition: opacity 0.2s;
+}
