@@ -23,7 +23,7 @@
     font-size: 8vw;
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     font-variant-numeric: tabular-nums;
     color: white;
     font-family: "Lato", sans-serif;
@@ -39,7 +39,7 @@
 
 #converter_solar .adjust-row,
 #converter_moon .adjust-row {
-    font-size: 0px;
+    font-size: 0;
 }
 
 #converter_solar .adjust-row td i,

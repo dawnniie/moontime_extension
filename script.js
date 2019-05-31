@@ -16,7 +16,7 @@
     }
 
 
-    window.addEventListener("moontime:updated", function(e) {
+    window.addEventListener("moontime:updated", function() {
         document.querySelector("#section_1>.time").setAttribute("visible", "")
         document.querySelector("#section_1 .time .time").innerHTML = moon.formatMoonString("%MS:%MM:%M")
         document.querySelector("#section_1 .time .date").innerHTML = moon.formatMoonString("%MdT %MeMT, %MAT, %MC")
