@@ -4,7 +4,6 @@
     position: absolute;
     left: -10vw;
     transition: left 0.4s, opacity 0.4s;
-    background-color: green;
     width: 100vw;
     height: 100vh;
     z-index: 1;
@@ -14,4 +13,22 @@
     left: 0;
     opacity: 1;
     transition: left 0.4s, opacity 0.4s;
+}
+
+#tb {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-top: calc(14vh + 20px);
+    text-align: center;
+    font-size: 1.5vw;
+    color: white;
+    font-family: "Lato", sans-serif;
+}
+
+#tb tr {
+    height: 3vw;
+}
+
+#tb tr:first-child {
+    height: 6vw;
 }
