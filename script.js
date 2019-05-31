@@ -1,5 +1,21 @@
 (function() {
 
+    let ext = true
+
+    let now = new Date()
+    if (now.getFullYear() === 2019 && now.getMonth() === 5 && now.getDate() === 3) {
+        if (ext) {
+            chrome.storage.sync.get(["push"], (res) => {
+                if (res.push !== "stable") {
+                    document.querySelector("html").setAttribute("epic", "")
+                }
+            })
+        } else {
+            document.querySelector("html").setAttribute("epic", "")
+        }
+    }
+
+
     window.addEventListener("moontime:updated", function(e) {
         document.querySelector("#section_1>.time").setAttribute("visible", "")
         document.querySelector("#section_1 .time .time").innerHTML = moon.formatMoonString("%MS:%MM:%M")
@@ -16,6 +32,8 @@
         document.querySelector("#bottom-toolbar .icons-container .sync").innerHTML = e.detail ? "cloud_done" : "cloud_off"
         document.querySelector("#bottom-toolbar .icons-container .sync").style.color = e.detail ? "" : "red"
     })
+
+    moon.init()
 
     let pageleft = () => {
         if (document.querySelector("#section_1").getAttribute("pinned") === "" && document.querySelector("#section_2").getAttribute("focused") === "") {

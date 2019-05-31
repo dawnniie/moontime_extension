@@ -11,6 +11,15 @@ html {
     --background-color: rgb(20, 23, 29);
 }
 
+html[epic] {
+    --background-color: transparent;
+    background: url(../icons/epic.png) no-repeat bottom left fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 body {
     background-color: var(--background-color);
     margin: 0;
