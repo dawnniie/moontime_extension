@@ -7,7 +7,14 @@
     })
 
     window.addEventListener("moontime:offset_updated", function(e) {
-        console.log("Offset: " + e.detail)
+        document.querySelector(".info-overlay.sync .offset").innerHTML = "<strong>Offset: </strong>" + Math.round(e.detail * 100) / 100 + "m"
+    })
+
+    window.addEventListener("moontime:api_status_changed", function(e) {
+        document.querySelector(".info-overlay.sync .status").innerHTML = "<strong>Status: </strong><span style='color: " + (e.detail ? "green'>Operational" : "red'>Disconnected") + "</span>"
+        if (!e.detail) document.querySelector(".info-overlay.sync .offset").innerHTML = ""
+        document.querySelector("#bottom-toolbar .icons-container .sync").innerHTML = e.detail ? "cloud_done" : "cloud_off"
+        document.querySelector("#bottom-toolbar .icons-container .sync").style.color = e.detail ? "" : "red"
     })
 
     let pageleft = () => {
@@ -71,6 +78,19 @@
         } else if (e.key === "ArrowRight") {
             e.preventDefault()
             document.querySelector("#paddle-right").className = ""
+        }
+    })
+
+    new Array("sync", "version", "help").forEach(overlay => {
+        document.querySelector("#bottom-toolbar .icons-container ." + overlay).onclick = () => {
+            console.log("yeah clicked")
+            new Array("sync", "version", "help").forEach(ol => document.querySelector(".info-overlay." + ol).removeAttribute("is-active"))
+            document.querySelector(".info-overlay." + overlay).setAttribute("is-active", "")
+            document.querySelector("#bottom-toolbar").setAttribute("is-active", "")
+        }
+        document.querySelector(".info-overlay." + overlay + " .close").onclick = e => {
+            e.path[0].parentElement.removeAttribute("is-active")
+            document.querySelector("#bottom-toolbar").removeAttribute("is-active")
         }
     })
 

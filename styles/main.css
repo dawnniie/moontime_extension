@@ -8,7 +8,7 @@
 }
 
 html {
-    --background-color: rgb(16, 21, 30);
+    --background-color: rgb(20, 23, 29);
 }
 
 body {
@@ -196,7 +196,8 @@ body {
 
 #bottom-toolbar .overlay:hover~.icons-container,
 #bottom-toolbar .paddle-toolbar:hover~.icons-container,
-#bottom-toolbar .icons-container:hover {
+#bottom-toolbar .icons-container:hover,
+#bottom-toolbar[is-active] .icons-container {
     transform: translateX(0);
     transition: transform 0.4s;
 }
@@ -215,5 +216,57 @@ body {
     vertical-align: top;
     z-index: 1;
     cursor: pointer;
-    color: dodgerblue;
+}
+
+#bottom-toolbar .icons-container .sync {
+    color: #00c6af;
+}
+
+#bottom-toolbar .icons-container .version {
+    color: black;
+}
+
+#bottom-toolbar .icons-container .help {
+    color: #ff5d00;
+}
+
+
+/* INFORMATION OVERLAYS */
+
+div.info-overlay {
+    width: 220px;
+    max-height: calc(60vh - 80px - 48px - 40px - 20px);
+    height: auto;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 5px 0 0 5px;
+    position: absolute;
+    bottom: 48px;
+    right: -250px;
+    transition: transform 0.2s;
+    box-shadow: 0 0 5px 0;
+    padding: 10px;
+    z-index: 6;
+}
+
+div.info-overlay .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+}
+
+div.info-overlay h2 {
+    font-family: "Lato", sans-serif;
+    margin: 4px 0 10px 0;
+}
+
+div.info-overlay p {
+    font-family: "Lato", sans-serif;
+    margin: 7px 0;
+}
+
+div.info-overlay[is-active] {
+    transform: translateX(-250px);
+    transition: transform 0.2s;
 }

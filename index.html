@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/section_2.css">
     <link rel="stylesheet" href="material.icons.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/LachlanWalls/moontime@master/moontime.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LachlanWalls/moontime@latest/moontime.js"></script>
 </head>
 
 <body preload dark>
@@ -48,10 +48,37 @@
         <div class="overlay"></div>
         <div class="paddle-toolbar"></div>
         <div class="icons-container">
-            <i class="material-icons icon" style="font-size: 21px; padding: 2px 3px 2px 1px;">help_outline</i>
-            <i class="material-icons icon">change_history</i>
-            <i class="material-icons icon">cloud_done</i>
+            <i class="material-icons icon help" style="font-size: 21px; padding: 2px 3px 2px 1px;">help_outline</i>
+            <i class="material-icons icon version">change_history</i>
+            <i class="material-icons icon sync">cloud_done</i>
         </div>
+    </div>
+
+    <div class="sync info-overlay">
+        <i class="material-icons close">close</i>
+        <h2>Time Sync</h2>
+        <p class="status"><strong>Status: </strong><span style="color: green">Operational</span></p>
+        <p><strong>Server: </strong>moon.dynodel.com</p>
+        <p><strong>Path: </strong>/api/v2</p>
+        <p class="offset"><strong>Offset: </strong></p>
+    </div>
+    <div class="version info-overlay">
+        <i class="material-icons close">close</i>
+        <h2>Version</h2>
+        <p><strong>Moon is on version 3.0.0</strong></p>
+        <p>- Improved clock accuracy</p>
+        <p>- Improved page switching</p>
+        <p>- Revamped toolbar</p>
+        <p>- More customisation</p>
+        <p></p>
+    </div>
+    <div class="help info-overlay">
+        <i class="material-icons close">close</i>
+        <h2>Help</h2>
+        <p><strong>Moon is a timekeeping system based on the lunar cycle.</strong></p>
+        <p>Help resources:</p>
+        <p>- Ask on <a href="https://reddit.com/r/moon_time">r/moon_time</a>.</p>
+        <p>- Contact through the <a href="https://chrome.google.com/webstore/detail/moon/pkmifcpdpojpgejapnpedemfpfddflee">extension page</a>.</p>
     </div>
 
     <script src="script.js"></script>
