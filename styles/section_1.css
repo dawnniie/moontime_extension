@@ -13,7 +13,7 @@
     text-align: center;
     opacity: 0;
     transition: opacity 0.4s;
-    filter: drop-shadow(0px 0px 40px);
+    filter: drop-shadow(0px 0px 110px) drop-shadow(0px 0px 90px) drop-shadow(0px 0px 40px);
 }
 
 #section_1>.time[visible] {
