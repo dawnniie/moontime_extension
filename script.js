@@ -146,9 +146,6 @@
         document.querySelector("#moon_indicator_mem").innerHTML = fm["MeMT"]
         document.querySelector("#moon_indicator_ann").innerHTML = fm["MAT"]
 
-        // age
-        //let annuals = (formatMoments(exttime, false)[0] - formatMoments(converterMoon, false)[0]) * 11 + (formatMoments(exttime, false)[1] - formatMoments(converterMoon, false)[1])
-        //document.querySelector("#converter_age").innerHTML = "Age: " + annuals
     }
 
     updateConverters()
@@ -180,5 +177,11 @@
             changeConverterMoon(e.path[0].getAttribute("adjust-len") * -1)
         }
     }
+
+    document.querySelector("#section_2 .age").addEventListener("click", () => {
+        let annuals = (moon.formatMoonTime(moon.currentSmoothTime(), false)["MC"] - moon.formatMoonTime(converterMoon, false)["MC"]) * 11 + (moon.formatMoonTime(moon.currentSmoothTime(), false)["MA"] - moon.formatMoonTime(converterMoon, false)["MA"])
+
+        console.log("Your moon age is " + annuals + "!")
+    })
 
 })();
