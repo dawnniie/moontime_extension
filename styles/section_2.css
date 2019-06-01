@@ -54,3 +54,16 @@
     opacity: 1;
     transition-duration: 0.2s;
 }
+
+#section_2 .age {
+    font-size: 1.2em;
+    color: white;
+    font-family: "Lato", sans-serif;
+    margin-left: 40px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#section_2 .age:hover {
+    opacity: 0.8;
+}
