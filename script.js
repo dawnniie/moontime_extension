@@ -1,18 +1,12 @@
 (function() {
 
-    let ext = true
-
     let now = new Date()
     if (now.getFullYear() === 2019 && now.getMonth() === 5 && now.getDate() === 3) {
-        if (ext) {
-            chrome.storage.sync.get(["push"], (res) => {
-                if (res.push !== "stable") {
-                    document.querySelector("html").setAttribute("epic", "")
-                }
-            })
-        } else {
-            document.querySelector("html").setAttribute("epic", "")
-        }
+        chrome.storage.sync.get(["push"], (res) => {
+            if (res.push !== "stable") {
+                document.querySelector("html").setAttribute("epic", "")
+            }
+        })
     }
 
 
@@ -188,13 +182,11 @@
 
     document.querySelector("#notification i").addEventListener("click", () => document.querySelector("#notification").removeAttribute("is-active"))
 
-    if (ext) {
-        chrome.storage.sync.get(["moon3"], function(res) {
-            if (!res.moon3) {
-                notify("Welcome to Moon 3")
-                document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'moon3': true }))
-            }
-        })
-    }
+    chrome.storage.sync.get(["moon3"], function(res) {
+        if (!res.moon3) {
+            notify("Welcome to Moon 3")
+            document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'moon3': true }))
+        }
+    })
 
 })();
