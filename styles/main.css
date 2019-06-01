@@ -294,6 +294,7 @@ div.info-overlay[is-active] {
     margin: 15px;
     transition: left 0.6s;
     bottom: 0;
+    z-index: 20;
 }
 
 #notification[is-active] {
