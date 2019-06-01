@@ -181,4 +181,20 @@
         }
     }
 
+    function notify(t) {
+        document.querySelector("#notification p").innerHTML = t
+        document.querySelector("#notification").setAttribute("is-active", "")
+    }
+
+    document.querySelector("#notification i").addEventListener("click", () => document.querySelector("#notification").removeAttribute("is-active"))
+
+    if (ext) {
+        chrome.storage.sync.get(["moon3"], function(res) {
+            if (!res.moon3) {
+                notify("Welcome to Moon 3")
+                document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'moon3': true }))
+            }
+        })
+    }
+
 })();
