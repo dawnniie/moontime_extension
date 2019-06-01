@@ -176,7 +176,7 @@
     document.querySelector("#section_2 .age").addEventListener("click", () => {
         let annuals = (moon.formatMoonTime(moon.currentSmoothTime(), false)["MC"] - moon.formatMoonTime(converterMoon, false)["MC"]) * 11 + (moon.formatMoonTime(moon.currentSmoothTime(), false)["MA"] - moon.formatMoonTime(converterMoon, false)["MA"])
 
-        console.log("Your moon age is " + annuals + "!")
+        notify("Your moon age is " + annuals + "!")
     })
     
 
