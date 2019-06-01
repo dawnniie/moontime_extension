@@ -268,11 +268,13 @@ div.info-overlay .close {
 div.info-overlay h2 {
     font-family: "Lato", sans-serif;
     margin: 4px 0 10px 0;
+    font-size: 2em;
 }
 
 div.info-overlay p {
     font-family: "Lato", sans-serif;
     margin: 7px 0;
+    font-size: 1.4em;
 }
 
 div.info-overlay[is-active] {
