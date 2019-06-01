@@ -1,18 +1,12 @@
 (function() {
 
-    let ext = true
-
     let now = new Date()
     if (now.getFullYear() === 2019 && now.getMonth() === 5 && now.getDate() === 3) {
-        if (ext) {
-            chrome.storage.sync.get(["push"], (res) => {
-                if (res.push !== "stable") {
-                    document.querySelector("html").setAttribute("epic", "")
-                }
-            })
-        } else {
-            document.querySelector("html").setAttribute("epic", "")
-        }
+        chrome.storage.sync.get(["push"], (res) => {
+            if (res.push !== "stable") {
+                document.querySelector("html").setAttribute("epic", "")
+            }
+        })
     }
 
 
@@ -178,10 +172,26 @@
         }
     }
 
+
     document.querySelector("#section_2 .age").addEventListener("click", () => {
         let annuals = (moon.formatMoonTime(moon.currentSmoothTime(), false)["MC"] - moon.formatMoonTime(converterMoon, false)["MC"]) * 11 + (moon.formatMoonTime(moon.currentSmoothTime(), false)["MA"] - moon.formatMoonTime(converterMoon, false)["MA"])
 
         console.log("Your moon age is " + annuals + "!")
+    })
+    
+
+    function notify(t) {
+        document.querySelector("#notification p").innerHTML = t
+        document.querySelector("#notification").setAttribute("is-active", "")
+    }
+
+    document.querySelector("#notification i").addEventListener("click", () => document.querySelector("#notification").removeAttribute("is-active"))
+
+    chrome.storage.sync.get(["moon3"], function(res) {
+        if (!res.moon3) {
+            notify("Welcome to Moon 3")
+            document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'moon3': true }))
+        }
     })
 
 })();
