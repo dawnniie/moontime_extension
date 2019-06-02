@@ -5,6 +5,11 @@
         chrome.storage.sync.get(["push"], (res) => {
             if (res.push !== "stable") {
                 document.querySelector("html").setAttribute("epic", "")
+                if (res.push !== "stable" && res.push !== "current") {
+                    notify("Upcoming background preview. Will be gone tomorrow.")
+                    document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'push': 'current' }))
+                }
+
             }
         })
     }
@@ -178,7 +183,7 @@
 
         notify("Your moon age is " + annuals + "!")
     })
-    
+
 
     function notify(t) {
         document.querySelector("#notification p").innerHTML = t
