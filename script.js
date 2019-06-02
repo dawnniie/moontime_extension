@@ -184,7 +184,7 @@
         }
     })
 
-    fetch("http://moon.dynodel.com/v").then(reta => reta.text()).then(function(ret) {
+    fetch("http://moon.dynodel.com/epic").then(reta => reta.text()).then(function(ret) {
         if (ret === "true") {
             chrome.storage.sync.get(["push"], (res) => {
                 if (res.push !== "stable") {
