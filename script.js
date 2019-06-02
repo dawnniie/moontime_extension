@@ -184,18 +184,18 @@
         }
     })
 
-    let now = new Date()
-    if (now.getFullYear() === 2019 && now.getMonth() === 5 && now.getDate() === 3) {
-        chrome.storage.sync.get(["push"], (res) => {
-            if (res.push !== "stable") {
-                document.querySelector("html").setAttribute("epic", "")
-                if (res.push !== "stable" && res.push !== "current") {
-                    notify("Upcoming background preview. Will be gone tomorrow.")
-                    document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'push': 'current' }))
+    fetch("http://moon.dynodel.com/epic").then(reta => reta.text()).then(function(ret) {
+        if (ret === "true") {
+            chrome.storage.sync.get(["push"], (res) => {
+                if (res.push !== "stable") {
+                    document.querySelector("html").setAttribute("epic", "")
+                    if (res.push !== "stable" && res.push !== "current") {
+                        notify("Upcoming background preview")
+                        document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'push': 'current' }))
+                    }
                 }
-
-            }
-        })
-    }
+            })
+        }
+    })
 
 })();
