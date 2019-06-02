@@ -1,15 +1,5 @@
 (function() {
 
-    let now = new Date()
-    if (now.getFullYear() === 2019 && now.getMonth() === 5 && now.getDate() === 3) {
-        chrome.storage.sync.get(["push"], (res) => {
-            if (res.push !== "stable") {
-                document.querySelector("html").setAttribute("epic", "")
-            }
-        })
-    }
-
-
     window.addEventListener("moontime:updated", function() {
         document.querySelector("#section_1>.time").setAttribute("visible", "")
         document.querySelector("#section_1 .time .time").innerHTML = moon.formatMoonString("%MS:%MM:%M")
@@ -178,7 +168,7 @@
 
         notify("Your moon age is " + annuals + "!")
     })
-    
+
 
     function notify(t) {
         document.querySelector("#notification p").innerHTML = t
@@ -193,5 +183,19 @@
             document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'moon3': true }))
         }
     })
+
+    let now = new Date()
+    if (now.getFullYear() === 2019 && now.getMonth() === 5 && now.getDate() === 3) {
+        chrome.storage.sync.get(["push"], (res) => {
+            if (res.push !== "stable") {
+                document.querySelector("html").setAttribute("epic", "")
+                if (res.push !== "stable" && res.push !== "current") {
+                    notify("Upcoming background preview. Will be gone tomorrow.")
+                    document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'push': 'current' }))
+                }
+
+            }
+        })
+    }
 
 })();
