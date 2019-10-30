@@ -13,7 +13,7 @@ html {
 
 html[epic] {
     --background-color: transparent;
-    background: url(../icons/epic.png) no-repeat bottom left fixed;
+    background: url(../icons/spooky.jpg) no-repeat bottom left fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
