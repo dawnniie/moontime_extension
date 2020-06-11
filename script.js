@@ -177,25 +177,4 @@
 
     document.querySelector("#notification i").addEventListener("click", () => document.querySelector("#notification").removeAttribute("is-active"))
 
-    chrome.storage.sync.get(["moon3"], function(res) {
-        if (!res.moon3) {
-            notify("Welcome to Moon 3")
-            document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'moon3': true }))
-        }
-    })
-
-    fetch("http://moon.dynodel.com/epic").then(reta => reta.text()).then(function(ret) {
-        if (ret === "true") {
-            chrome.storage.sync.get(["push"], (res) => {
-                if (res.push !== "stable") {
-                    document.querySelector("html").setAttribute("epic", "")
-                    if (res.push !== "stable" && res.push !== "current") {
-                        notify("Upcoming background preview")
-                        document.querySelector("#notification i").addEventListener("click", () => chrome.storage.sync.set({ 'push': 'current' }))
-                    }
-                }
-            })
-        }
-    })
-
 })();
