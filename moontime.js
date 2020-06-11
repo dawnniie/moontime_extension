@@ -24,7 +24,7 @@ let moon = {
 
     _fetchAPI: () => {
         let start = performance.now()
-        fetch("http://moon.dynodel.com/api/v2").then(res => res.text()).then(ret => {
+        fetch("https://api.dynodel.com/moon").then(res => res.text()).then(ret => {
             moon._apiMoon = Number(ret.split(":")[1]) - ((new Date().getTime()) - Number(ret.split(":")[0])) / 4.97875
             moon._apiUpdate = performance.now()
             moon.apiConnected = true
