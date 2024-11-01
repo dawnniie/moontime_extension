@@ -68,15 +68,15 @@ let converterMoon = moon.solarToMoon(converterSolar.getTime())
 const padZero = (num: number) => String(num).padStart(2, '0')
 function updateConverters() {
     // solar
-    let values = [padZero(converterSolar.getHours()), ':', padZero(converterSolar.getMinutes()), ':', padZero(converterSolar.getSeconds()), '', converterSolar.getDate(), '/', converterSolar.getMonth() + 1, '/', String(converterSolar.getFullYear()).substring(2)]
-    let elms = document.querySelectorAll('.converter.solar .values td')
+    const values = [padZero(converterSolar.getHours()), ':', padZero(converterSolar.getMinutes()), ':', padZero(converterSolar.getSeconds()), '', converterSolar.getDate(), '/', converterSolar.getMonth() + 1, '/', String(converterSolar.getFullYear()).substring(2)]
+    const elms = document.querySelectorAll('.converter.solar .values td')
     for (var i = 0; i < elms.length; i++) elms[i]!.innerHTML = String(values[i])
     document.querySelector('.converter.solar .hint.month')!.innerHTML = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][converterSolar.getMonth()]!
 
     // moon
-    let fm = moon.formatMoonTime(converterMoon)
-    let m_values = [fm.moonSegmentsPadded, ':', fm.moonMomentsPadded, ':', padZero(fm.miniMoonMoments), '', fm.moonDays, '/', fm.megaMoonMoment, '/', fm.moonAnnual, '/', fm.moonChunk]
-    let m_elms = document.querySelectorAll('.converter.moon .values td')
+    const fm = moon.formatMoonTime(converterMoon)
+    const m_values = [fm.moonSegmentsPadded, ':', fm.moonMomentsPadded, ':', padZero(fm.miniMoonMoments), '', fm.moonDays, '/', fm.megaMoonMoment, '/', fm.moonAnnual, '/', fm.moonChunk]
+    const m_elms = document.querySelectorAll('.converter.moon .values td')
     for (var i = 0; i < m_elms.length; i++) m_elms[i]!.innerHTML = String(m_values[i])
     document.querySelector('.converter.moon .hint.moment')!.innerHTML = fm.megaMoonMomentByName
     document.querySelector('.converter.moon .hint.annual')!.innerHTML = fm.moonAnnualByName
