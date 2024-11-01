@@ -1,6 +1,12 @@
 @font-face {
     font-family: "Lato";
-    src: url(../icons/Lato-Light.ttf) format("truetype");
+    src: url(../assets/Lato-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(../assets/Lato-Bold.ttf) format("truetype");
+    font-weight: bold;
 }
 
 ::-webkit-scrollbar {
@@ -8,318 +14,177 @@
 }
 
 html {
-    --background-color: rgb(20, 23, 29);
-}
-
-html[epic] {
-    --background-color: transparent;
-    background: url(../icons/epic.png) no-repeat bottom left fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    --background-color: rgb(20, 22, 28);
 }
 
 body {
-    background-color: var(--background-color);
+    background: url(../assets/particles.jpg), var(--background-color);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, top left;
+    background-attachment: fixed, fixed;
+    background-blend-mode: screen, normal;
+    background-size: cover, contain;
+    font-size: 14px;
     margin: 0;
     overflow-x: hidden;
 }
 
-
-/* LEFT PADDLE */
-
-#paddle-left {
+#overlay {
     position: absolute;
-    width: 3px;
-    height: 80px;
-    top: 40vh;
-    left: 10px;
-    cursor: pointer;
-    z-index: 4;
-    transition: transform 0.2s;
-}
-
-#paddle-left[disabled] {
-    transform: scale(0);
-    transition: transform 0.2s;
-}
-
-#hover-detect-left {
-    z-index: 3;
-    position: absolute;
-    width: 20px;
-    height: 100vh;
     top: 0;
     left: 0;
-    cursor: pointer;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
-#hover-detect-left[disabled] {
-    display: none;
+#overlay[data-showing='true'] {
+    opacity: 1;
 }
 
-#paddle-left .paddle-upper {
-    width: 3px;
-    height: 40px;
-    border-radius: 3px 3px 0 0;
-    background-color: white;
-    transition: transform 0.2s, margin-left 0.2s;
-}
+/* PADDLES */
 
-#hover-detect-left:hover~#paddle-left .paddle-upper,
-#paddle-left:hover .paddle-upper,
-#paddle-left.is-active .paddle-upper {
-    transform: rotate(20deg);
-    margin-left: 5px;
-    transition: transform 0.2s, margin-left 0.2s;
-}
-
-#paddle-left .paddle-lower {
-    width: 3px;
-    height: 40px;
-    margin-top: -5px;
-    border-radius: 3px 3px 0 0;
-    background-color: white;
-    transition: transform 0.2s, margin-left 0.2s;
-}
-
-#hover-detect-left:hover~#paddle-left .paddle-lower,
-#paddle-left:hover .paddle-lower,
-#paddle-left.is-active .paddle-lower {
-    transform: rotate(-20deg);
-    margin-left: 5px;
-    transition: transform 0.2s, margin-left 0.2s;
-}
-
-
-/* RIGHT PADDLE */
-
-#paddle-right {
+.paddle {
     position: absolute;
     width: 3px;
     height: 80px;
     top: 40vh;
-    right: 10px;
     cursor: pointer;
     z-index: 4;
     transition: transform 0.2s;
 }
 
-#paddle-right[disabled] {
+.paddle[data-disabled='true'] {
     transform: scale(0);
     transition: transform 0.2s;
 }
 
-#hover-detect-right {
-    z-index: 3;
+.paddle.left { left: 10px; }
+.paddle.right { right: 10px; }
+
+.hover-detect {
     position: absolute;
-    width: 20px;
-    height: calc(100vh - 48px);
+    width: 50px;
     top: 0;
-    right: 0;
     cursor: pointer;
+    z-index: 3;
 }
 
-#hover-detect-right[disabled] {
-    display: none;
-}
+.hover-detect[data-disabled='true'] { display: none; }
 
-#paddle-right .paddle-upper {
+.hover-detect.left { height: 100vh; left: 0; }
+.hover-detect.right { height: calc(100vh - 100px); right: 0; }
+
+.paddle-upper, .paddle-lower {
     width: 3px;
     height: 40px;
     border-radius: 3px 3px 0 0;
     background-color: white;
-    transition: transform 0.2s, margin-left 0.2s;
+    transition: transform 0.2s, margin-left 0.2s, margin-right 0.2s;
 }
 
-#hover-detect-right:hover~#paddle-right .paddle-upper,
-#paddle-right:hover .paddle-upper,
-#paddle-right.is-active .paddle-upper {
+.paddle-lower { margin-top: -3.5px; }
+
+.hover-detect.left:hover ~ .paddle.left .paddle-upper,
+.paddle.left:hover .paddle-upper,
+.paddle.left.is-active .paddle-upper {
+    transform: rotate(20deg);
+    margin-left: 5px;
+}
+
+.hover-detect.left:hover ~ .paddle.left .paddle-lower,
+.paddle.left:hover .paddle-lower,
+.paddle.left.is-active .paddle-lower {
+    transform: rotate(-20deg);
+    margin-left: 5px;
+}
+
+.hover-detect.right:hover ~ .paddle.right .paddle-upper,
+.paddle.right:hover .paddle-upper,
+.paddle.right.is-active .paddle-upper {
     transform: rotate(-20deg);
     margin-right: 5px;
-    transition: transform 0.2s, margin-left 0.2s;
 }
 
-#paddle-right .paddle-lower {
-    width: 3px;
-    height: 40px;
-    margin-top: -5px;
-    border-radius: 3px 3px 0 0;
-    background-color: white;
-    transition: transform 0.2s, margin-left 0.2s;
-}
-
-#hover-detect-right:hover~#paddle-right .paddle-lower,
-#paddle-right:hover .paddle-lower,
-#paddle-right.is-active .paddle-lower {
+.hover-detect.right:hover ~ .paddle.right .paddle-lower,
+.paddle.right:hover .paddle-lower,
+.paddle.right.is-active .paddle-lower {
     transform: rotate(20deg);
     margin-right: 5px;
-    transition: transform 0.2s, margin-left 0.2s;
 }
 
 
 /* THE BOTTOM TOOLBAR THINGY */
 
-#bottom-toolbar {
+#bottom-widget {
     position: absolute;
-    width: 100vw;
-    height: 28px;
-    bottom: 10px;
-    direction: rtl;
-    font-size: 0;
-    overflow-x: hidden;
+    width: 300px;
+    height: 100px;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
 }
 
-#bottom-toolbar .overlay {
-    position: relative;
-    width: 10px;
-    height: 28px;
-    background-color: var(--background-color);
-    display: inline-block;
-    vertical-align: top;
-    z-index: 2;
-}
-
-#bottom-toolbar .paddle-toolbar {
-    position: relative;
+#bottom-widget .container {
+    position: absolute;
+    padding: 0px;
     width: 3px;
     height: 28px;
-    border-radius: 3px;
-    background-color: white;
-    display: inline-block;
-    vertical-align: top;
-    z-index: 2;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px) brightness(600%) saturate(60%);
+    overflow: hidden;
+    /* transition hide */
+    transition: all 0.2s ease-in;
 }
 
-#bottom-toolbar .icons-container {
-    position: relative;
-    width: fit-content;
-    height: 28px;
-    transform: translateX(164px);
-    transition: transform 0.4s;
-    display: inline-block;
-    vertical-align: top;
-    z-index: 1;
+#bottom-widget .container * {
+    opacity: 0;
+    overflow: hidden;
+    word-wrap: none;
+    white-space: nowrap;
+    transition: all 0s linear 0.2s;
 }
 
-#bottom-toolbar .overlay:hover~.icons-container,
-#bottom-toolbar .paddle-toolbar:hover~.icons-container,
-#bottom-toolbar .icons-container:hover,
-#bottom-toolbar[is-active] .icons-container {
-    transform: translateX(0);
-    transition: transform 0.4s;
+#bottom-widget .container h3 {
+    margin-bottom: 8px;
 }
 
-#bottom-toolbar .icons-container .icon {
-    width: 20px;
-    height: 20px;
-    padding: 2px;
-    margin-right: 8px;
-    margin-top: 2px;
-    font-size: 19px;
-    color: black;
-    background-color: white;
-    border-radius: 28px;
-    display: inline-block;
-    vertical-align: top;
-    z-index: 1;
-    cursor: pointer;
+#bottom-widget .container p {
+    margin: 2px 0;
 }
 
-#bottom-toolbar .icons-container .sync {
-    color: #00c6af;
+#bottom-widget .container .more {
+    margin-top: 6px;
 }
 
-#bottom-toolbar .icons-container .version {
-    color: black;
+#bottom-widget .container .more a {
+    color: black !important;
 }
 
-#bottom-toolbar .icons-container .help {
-    color: #ff5d00;
-}
-
-
-/* INFORMATION OVERLAYS */
-
-div.info-overlay {
+#bottom-widget:hover .container,
+#bottom-widget .container:hover {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 0 12px;
     width: 220px;
-    max-height: calc(60vh - 80px - 48px - 40px - 20px);
-    height: auto;
-    overflow-y: auto;
-    background-color: white;
-    border-radius: 5px 0 0 5px;
-    position: absolute;
-    bottom: 48px;
-    right: -250px;
-    transition: transform 0.2s;
-    box-shadow: 0 0 5px 0;
-    padding: 10px;
-    z-index: 6;
+    height: 120px;
+    right: 16px;
+    bottom: 16px;
+    /* transition show */
+    transition:
+        padding 0.6s cubic-bezier(.82,.31,.61,.99),
+        width 0.6s cubic-bezier(.82,.31,.61,.99),
+        height 0.6s cubic-bezier(.82,.03,.61,.99),
+        right 0.6s cubic-bezier(.4,12,.37,1.22),
+        bottom 0.6s cubic-bezier(.4,3.11,.37,1.22);
 }
 
-div.info-overlay .close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    cursor: pointer;
-}
-
-div.info-overlay h2 {
-    font-family: "Lato", sans-serif;
-    margin: 4px 0 10px 0;
-    font-size: 2em;
-}
-
-div.info-overlay p {
-    font-family: "Lato", sans-serif;
-    margin: 7px 0;
-    font-size: 1.4em;
-}
-
-div.info-overlay[is-active] {
-    transform: translateX(-250px);
-    transition: transform 0.2s;
-}
-
-#notification {
-    height: 20px;
-    border-radius: 10px;
-    background-color: white;
-    filter: drop-shadow(0, 0, 4px);
-    padding: 8px;
-    width: fit-content;
-    position: absolute;
-    left: -100vw;
-    margin: 15px;
-    transition: left 0.6s;
-    bottom: 0;
-    z-index: 20;
-}
-
-#notification[is-active] {
-    left: 0;
-}
-
-#notification p {
-    height: 20px;
-    font-size: 16px;
-    font-family: "Lato", sans-serif;
-    margin: 0;
-    display: inline-block;
-    vertical-align: top;
-}
-
-#notification i {
-    font-size: 18px;
-    opacity: 0.4;
-    transition: opacity 0.2s;
-    display: inline-block;
-    vertical-align: top;
-    cursor: pointer;
-    margin: 2px 0 0 10px;
-}
-
-#notification i:hover {
+#bottom-widget:hover .container *,
+#bottom-widget .container:hover * {
     opacity: 1;
+    transition: all 0s;
 }

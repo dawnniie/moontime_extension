@@ -16,8 +16,7 @@
     transition: left 0.4s, opacity 0.4s;
 }
 
-#converter_solar,
-#converter_moon {
+.converter {
     width: calc(100% - 40px);
     margin-left: 20px;
     font-size: 8vw;
@@ -29,30 +28,28 @@
     font-family: "Lato", sans-serif;
 }
 
-#converter_solar {
+.converter.solar {
     margin-top: calc(14vh + 20px);
 }
 
-#converter_moon {
+.converter.moon {
     margin-top: 4vw;
 }
 
-#converter_solar .adjust-row,
-#converter_moon .adjust-row {
+.converter .adjust-row {
+    height: 38px;
     font-size: 0;
 }
 
-#converter_solar .adjust-row td i,
-#converter_moon .adjust-row td i {
+.converter .adjust-row td {
+    font-size: 20px;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.6;
     transition-duration: 0.2s;
 }
 
-#converter_solar .adjust-row td i:hover,
-#converter_moon .adjust-row td i:hover {
+.converter .adjust-row td:hover {
     opacity: 1;
-    transition-duration: 0.2s;
 }
 
 #section_2 .age {

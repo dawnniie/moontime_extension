@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Moon</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/section_0.css">
+    <link rel="stylesheet" href="styles/section_1.css">
+    <link rel="stylesheet" href="styles/section_2.css">
+</head>
+
+<body preload dark>
+    <div id="overlay"></div>
+    <div class="hover-detect left"></div>
+    <div class="hover-detect right"></div>
+
+    <div class="paddle left">
+        <div class="paddle-upper"></div>
+        <div class="paddle-lower"></div>
+    </div>
+
+    <div class="paddle right">
+        <div class="paddle-upper"></div>
+        <div class="paddle-lower"></div>
+    </div>
+
+
+
+    <section id="section_0">
+        <table id="tb">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Approximation</th>
+                <th>Precise</th>
+            </tr>
+            <tr>
+                <td>m</td>
+                <td>Micro Moon Moment</td>
+                <td>200</td>
+                <td>4 milliseconds</td>
+                <td>0.00497875 s</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>Mini Moon Moment</td>
+                <td>100</td>
+                <td>almost 1 second</td>
+                <td>0.983575 s</td>
+            </tr>
+            <tr>
+                <td>MM</td>
+                <td>Moon Moment</td>
+                <td>40</td>
+                <td>1.5 minutes</td>
+                <td>1.63929167 m</td>
+            </tr>
+            <tr>
+                <td>MS</td>
+                <td>Moon Segment</td>
+                <td>10</td>
+                <td>1.1 hours</td>
+                <td>1.09230556 h</td>
+            </tr>
+            <tr>
+                <td>Md</td>
+                <td>Moon Day</td>
+                <td>59</td>
+                <td>11 hours</td>
+                <td>10.9286111 h</td>
+            </tr>
+            <tr>
+                <td>MeM</td>
+                <td>Mega Moon Moment</td>
+                <td>4</td>
+                <td>27 days</td>
+                <td>26.8661689 days</td>
+            </tr>
+            <tr>
+                <td>MA</td>
+                <td>Moon Annual</td>
+                <td>11</td>
+                <td>3.5 months</td>
+                <td>3.58215586 months</td>
+            </tr>
+            <tr>
+                <td>MC</td>
+                <td>Moon Chunk</td>
+                <td>highest unit</td>
+                <td>4 years</td>
+                <td>4.10455359 years</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="section_1">
+        <div class="time">
+            <img class="moon_icon" src="assets/moon_ic.png">
+            <div class="container">
+                <p class="time"></p>
+                <p class="date"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section_2">
+        <table class="converter solar">
+            <tr class="adjust-row solar-adjust">
+                <td data-dir="1" data-unit="Hours">&#9650;</td>
+                <td></td>
+                <td data-dir="1" data-unit="Minutes">&#9650;</td>
+                <td></td>
+                <td data-dir="1" data-unit="Seconds">&#9650;</td>
+                <td></td>
+                <td data-dir="1" data-unit="Date">&#9650;</td>
+                <td></td>
+                <td data-dir="1" data-unit="Month">&#9650;</td>
+                <td></td>
+                <td data-dir="1" data-unit="Year">&#9650;</td>
+            </tr>
+            <tr class="values">
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td style="width: 10%;"></td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+            </tr>
+            <tr class="adjust-row solar-adjust">
+                <td data-dir="-1" data-unit="Hours">&#9660;</td>
+                <td></td>
+                <td data-dir="-1" data-unit="Minutes">&#9660;</td>
+                <td></td>
+                <td data-dir="-1" data-unit="Seconds">&#9660;</td>
+                <td></td>
+                <td data-dir="-1" data-unit="Date">&#9660;</td>
+                <td></td>
+                <td data-dir="-1" data-unit="Month">&#9660;</td>
+                <td></td>
+                <td data-dir="-1" data-unit="FullYear">&#9660;</td>
+            </tr>
+            <tr style="font-size: 2vw;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="hint month"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table class="converter moon">
+            <tr class="adjust-row moon-adjust">
+                <td data-size="4000">&#9650;</td>
+                <td></td>
+                <td data-size="100">&#9650;</td>
+                <td></td>
+                <td data-size="1">&#9650;</td>
+                <td></td>
+                <td data-size="40000">&#9650;</td>
+                <td></td>
+                <td data-size="2360000">&#9650;</td>
+                <td></td>
+                <td data-size="9440000">&#9650;</td>
+                <td></td>
+                <td data-size="103840000">&#9650;</td>
+            </tr>
+            <tr class="values">
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td>:</td>
+                <td>00</td>
+                <td style="width: 5%;"></td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+                <td>/</td>
+                <td>00</td>
+            </tr>
+            <tr class="adjust-row moon-adjust">
+                <td data-size="-4000">&#9660;</td>
+                <td></td>
+                <td data-size="-100">&#9660;</td>
+                <td></td>
+                <td data-size="-1">&#9660;</td>
+                <td></td>
+                <td data-size="-40000">&#9660;</td>
+                <td></td>
+                <td data-size="-2360000">&#9660;</td>
+                <td></td>
+                <td data-size="-9440000">&#9660;</td>
+                <td></td>
+                <td data-size="-103840000">&#9660;</td>
+            </tr>
+            <tr style="font-size: 2vw;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="hint moment"></td>
+                <td></td>
+                <td class="hint annual"></td>
+            </tr>
+        </table>
+        <p class="age">This is the day I was born</p>
+    </section>
+
+    <div id="bottom-widget">
+        <div class="container">
+            <h3>Moon Time</h3>
+            <p>time server: <strong>api.dynodel.com</strong></p>
+            <p class="sync-off" style="color: darkred;">sync off, server unreachable</p>
+            <p class="sync-on" style="color: darkgreen; display: none;">sync on, offset: <strong>...</strong>m</p>
+            <p class="more"><a href="https://moon.dynodel.com" target="_blank" rel="noreferrer">more info about moon time</a></p>
+        </div>
+    </div>
+
+    <script type="module" src="./build/index.js"></script>
+</body>
+
+</html>

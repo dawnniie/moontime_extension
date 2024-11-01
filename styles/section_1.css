@@ -2,7 +2,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
+    user-select: none;
 }
 
 #section_1>.time {
@@ -12,26 +13,21 @@
     height: 23vh;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.4s;
-    filter: drop-shadow(0px 0px 110px) drop-shadow(0px 0px 90px) drop-shadow(0px 0px 40px);
+    transform: scale(1);
+    transition:
+        opacity 0.4s,
+        top 0.4s cubic-bezier(0, 0, 0.3, 1),
+        transform 0.4s cubic-bezier(0, 0, 0.3, 1);
+    filter: drop-shadow(4px 4px 20px) drop-shadow(4px 4px 8px);
 }
 
 #section_1>.time[visible] {
-    top: 30vh;
-    transform: scale(1);
     opacity: 1;
-    transition: top 0.4s, transform 0.2s, opacity 0.4s;
 }
 
 #section_1[pinned]>.time {
     top: -4vh;
     transform: scale(0.6);
-    transition: top 0.4s, transform 0.2s 0.2s;
-}
-
-#section_1[pinned]>.time .container .date {
-    opacity: 0;
-    transition: opacity 0.2s;
 }
 
 #section_1 .time .moon_icon {
@@ -72,4 +68,9 @@
     opacity: 0.8;
     padding-left: 2vw;
     transition: opacity 0.2s;
+    filter: drop-shadow(4px 4px 4px black);
+}
+
+#section_1[pinned] .time .container .date {
+    opacity: 0;
 }
